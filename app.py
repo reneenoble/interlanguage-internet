@@ -24,6 +24,7 @@ def index_post():
     # Load the values from .env
     key =  os.getenv('KEY')
     endpoint =  os.getenv('ENDPOINT')
+    print("#########ENPOINT: ", endpoint)
     location =  os.getenv('LOCATION')
 
     # Indicate that we want to translate and the API version (3.0) and the target language
@@ -48,6 +49,8 @@ def index_post():
     translator_request = requests.post(constructed_url, headers=headers, json=body)
     # Retrieve the JSON response
     translator_response = translator_request.json()
+
+    print(translator_response)
     # Retrieve the translation
     translated_text = translator_response[0]['translations'][0]['text']
 
