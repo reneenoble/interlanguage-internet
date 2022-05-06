@@ -1,6 +1,6 @@
 import requests, os, uuid, json
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 from flask import Flask, redirect, url_for, request, render_template, session
 
@@ -22,9 +22,9 @@ def index_post():
     ################################
 
     # Load the values from .env
-    key = os.environ['KEY']
-    endpoint = os.environ['ENDPOINT']
-    location = os.environ['LOCATION']
+    key =  os.getenv('KEY')
+    endpoint =  os.getenv('ENDPOINT')
+    location =  os.getenv('LOCATION')
 
     # Indicate that we want to translate and the API version (3.0) and the target language
     path = '/translate?api-version=3.0'
@@ -54,6 +54,7 @@ def index_post():
     ################################
     # IT WASN'T SO HARD WAS IT? :) #
     ################################
+
 
     # Call render template, passing the translated text,
     # original text, and target language to the template
